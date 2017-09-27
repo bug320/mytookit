@@ -7,7 +7,7 @@ import os
 
 class CMode(object):
 
-    def __init__(self, `author="bug320"):
+    def __init__(self, author="bug320"):
         self._encoding = "utf-8"
         self._author = author
         self._purpose = "purpose"
@@ -69,7 +69,10 @@ if __name__ == "__main__":
         time = ctime()
         time = strptime(time, "%a %b %d %H:%M:%S %Y")
         time = strftime("%Y%m%d%H%M", time)
-        fname = fname if fname else "Unname{0}".format(time)
+        fname = fname if fname else "Unname{0}.py".format(time)
+        if not fname.endswith(".py"):
+            fname += ".py"
+            pass
         with open(fname, "w") as writer:
             writer.write(str(self))
             pass
