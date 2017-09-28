@@ -14,11 +14,11 @@ import getopt
 
 
 class IDE(object):
-    def __init__(self): 
+    def __init__(self):
         pass
 
     def createfile(self, fname=None):
-        co = cm.CMode() 
+        co = cm.CMode()
         co.tofile(fname=fname)
         pass
 
@@ -32,6 +32,9 @@ def perror():
 
 def main(argv):
     ide = IDE()
+    if not len(argv):
+        perror()
+        pass
     try:
         opts, args = getopt.getopt(argv,  "hc:", ["create_file="])
         # if len(args) == 0:
